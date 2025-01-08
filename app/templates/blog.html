@@ -38,18 +38,20 @@
         <label for="content" class="form-label">Текст поста</label>
         <textarea class="form-control" rows="5" id="content" name="content" required></textarea>
       </div>-->
-      <button type="submit" class="btn btn-primary w-100">Отправить пост</button>
+      <button type="submit" class="btn btn-primary w-100">Отправить контакты</button>
     </form>
   </div>
 
   <hr>
 
-  <h2>Мы с вами познакомились!</h2>
-  <div id="posts">
-    {% for post in posts %}
-    <div class="post">
-      <h3>{{ post.title }}</h3>
-      <p>{{ post.content }}</p>
+  <h2>Теперь мы знакомы!</h2>
+  <div id="contacts">
+    {% for contact in contacts %}
+    <div class="contact">
+      <p>{{ contact.name }}</p>
+      <p>{{ contact.city }}</p>
+      <p>{{ contact.hobby }}</p>
+      <p>{{ contact.age }}</p>
     </div>
     {% endfor %}
   </div>
