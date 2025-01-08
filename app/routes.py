@@ -14,4 +14,4 @@ def index():
             contacts.append({'name': name, 'city': city, 'hobby': hobby, 'age': age})
             return redirect(url_for('index'))
 
-    return render_template('blog.html', contacts=contacts)
+    return render_template('contacts.html', contacts=contacts)
