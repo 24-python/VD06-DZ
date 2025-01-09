@@ -11,9 +11,9 @@
 <body>
 
 <div class="container">
-  <h1>Давайте знакомиться</h1>
+  <h1 class="mt-4">Давайте знакомиться</h1>
 
-  <div class="form-container">
+  <div class="form-container mt-4">
     <form action="/" method="post">
       <div class="mb-3">
         <label for="name" class="form-label">Введите свое имя</label>
@@ -31,30 +31,37 @@
         <label for="age" class="form-label">Введите свой возраст</label>
         <input type="number" class="form-control" id="age" name="age" required>
       </div>
-
-
-      <!--
-      <div class="mb-3">
-        <label for="content" class="form-label">Текст поста</label>
-        <textarea class="form-control" rows="5" id="content" name="content" required></textarea>
-      </div>-->
       <button type="submit" class="btn btn-primary w-100">Отправить контакты</button>
     </form>
   </div>
 
-  <hr>
+  <hr class="my-4">
 
   <h2>Теперь мы знакомы!</h2>
-  <div id="contacts">
-    {% for contact in contacts %}
-    <div class="contact">
-      <p>{{ contact.name }}</p>
-      <p>{{ contact.city }}</p>
-      <p>{{ contact.hobby }}</p>
-      <p>{{ contact.age }}</p>
-    </div>
-    {% endfor %}
-  </div>
+  {% if contacts %}
+  <table class="table table-bordered table-striped mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>Имя</th>
+        <th>Город</th>
+        <th>Хобби</th>
+        <th>Возраст</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contact in contacts %}
+      <tr>
+        <td>{{ contact.name | e }}</td>
+        <td>{{ contact.city | e }}</td>
+        <td>{{ contact.hobby | e }}</td>
+        <td>{{ contact.age | e }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="text-muted">Пока еще нет контактов. Будьте первым, кто отправит свои данные!</p>
+  {% endif %}
 </div>
 
 <!-- Bootstrap JS -->
